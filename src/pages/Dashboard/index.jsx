@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ProgressBar from '../../components/ProgressBar'
 import Divider from '../../components/Divider'
 import Styles from './style.module.scss'
 import RoundProgress from '../../components/RoundProgress'
 
+const dogImages = [
+    '/assets/image.png',
+    '/assets/image2.png',
+    '/assets/image3.png',
+    '/assets/image4.png',
+]
+
 function Dashboard() {
+    const [activeImage, setActiveImage] = useState(dogImages[0])
+
     return (
         <>
             <section>
@@ -133,11 +142,30 @@ function Dashboard() {
                     </p>
                     <div className={Styles.grid}>
                         <div className={Styles.images}>
-                            hello
+                            <img src={activeImage} alt='' className={Styles.activeImage} />
+                            <div className={Styles.thumbnailWrapper}>
+                                {
+                                    dogImages.map((image, idx) =>
+                                        <img src={image}
+                                            alt=''
+                                            className={Styles.thumbnail}
+                                            key={image}
+                                            onClick={() => setActiveImage(dogImages[idx])}
+                                        />)
+                                }
+                            </div>
                         </div>
                         <div className={Styles.details}>
                             <h2>French Bull Dog Pillow</h2>
-                            <p>(38 Reviews)</p>
+                            <p className={Styles.review}>(38 Reviews)</p>
+                            <h3 className={Styles.price}>
+                                $17.19 <span>$23</span>
+                            </h3>
+                            <p className={Styles.productDetail}>
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus, doloremque id sint ad obcaecati animi cum quaerat, totam nulla adipisci vel non amet iste. Ad ullam necessitatibus beatae quibusdam quas!
+                            </p>
+                            <Divider /><button className='btn btn-primary'>Add to Cart</button>
+                            <button className='btn btn-secondary'>Add to Wishlist</button>
                         </div>
                     </div>
                 </div>
