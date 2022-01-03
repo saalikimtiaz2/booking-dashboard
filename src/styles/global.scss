@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,500&display=swap");
+
+* {
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+section {
+  padding: 20px 0 30px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 992px;
+  margin: 0 auto;
+  padding: 1.5em 2em;
+  background-color: #f2f4f7;
+  @media only screen and (max-width: 768px) {
+    padding: 1em;
+  }
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.gridContainer {
+  display: grid;
+  columns: 2;
+  gap: 2em;
+  grid-auto-rows: minmax(120px, auto);
+}
+.gridChild {
+  padding: 2em;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  position: relative;
+  @media only screen and (max-width: 768px) {
+    padding: 2em 1.5em;
+  }
+}
+.one {
+  grid-column: 1 / 2;
+  grid-row: 1;
+}
+.two {
+  grid-column: 2 / 2;
+  grid-row: 1;
+}
+.three {
+  grid-column: 1 / 2;
+  grid-row: 2/5;
+}
+.four {
+  grid-column: 2 / 2;
+  grid-row: 2/6;
+}
+.five {
+  grid-column: 1;
+  grid-row: 5/5;
+}
+
+@media only screen and (max-width: 560px) {
+  .one {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .two {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .three {
+    grid-column: 1;
+    grid-row: 3/6;
+  }
+  .four {
+    grid-column: 1;
+    grid-row: 7/12;
+  }
+  .five {
+    grid-column: 1;
+    grid-row: 6;
+  }
+}
+
+.btn {
+  width: fit-content;
+  height: fit-content;
+  text-transform: capitalize;
+  font-size: 16px;
+  font-weight: 400;
+  box-sizing: border-box;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+  cursor: pointer;
+}
+.btn-link {
+  color: rgb(3, 43, 223);
+  background-color: transparent;
+  border: none;
+  &:hover {
+    outline: none;
+    color: rgb(64, 99, 255);
+  }
+}
+.icon {
+  width: 28px;
+}
+.iconList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  li {
+    margin-right: 10px;
+    img {
+      width: 14px;
+      height: auto;
+      opacity: 0.7;
+      transition: all 0.5s ease-in-out;
+      &:hover {
+        opacity: 1;
+      }
+    }
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+}
