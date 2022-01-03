@@ -3,6 +3,7 @@ import ProgressBar from '../../components/ProgressBar'
 import Divider from '../../components/Divider'
 import Styles from './style.module.scss'
 import RoundProgress from '../../components/RoundProgress'
+import Tabs from '../../components/Tabs'
 
 const dogImages = [
     '/assets/image.png',
@@ -13,6 +14,35 @@ const dogImages = [
 
 function Dashboard() {
     const [activeImage, setActiveImage] = useState(dogImages[0])
+    const [activePan, setActivePan] = useState(0);
+
+    const handleChangeActivePan = (value) => () => {
+        setActivePan(value);
+    };
+    const renderViews = () => {
+        switch (activePan) {
+            case 0:
+                return (
+                    <div>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque officia similique modi architecto animi voluptatem dolores accusantium aliquam, fugiat placeat fugit vel dolore asperiores officiis quasi sit odit consequatur facilis?
+                    </div>
+                );
+            case 1:
+                return (
+                    <div>
+                        adipisicing elit. Neque officia similique modi architecto animi voluptatem dolores accusantium aliquam, fugiat placeat fugit vel dolore asperiores officiis quasi sit odit consequatur facilis?
+                    </div>
+                );
+            case 2:
+                return (
+                    <div>
+                        Voluptatem dolores accusantium aliquam, fugiat placeat fugit vel dolore asperiores officiis quasi sit odit consequatur facilis?
+                    </div>
+                );
+            default:
+                return <span>Found Nothing</span>;
+        }
+    };
 
     return (
         <>
@@ -162,10 +192,27 @@ function Dashboard() {
                                 $17.19 <span>$23</span>
                             </h3>
                             <p className={Styles.productDetail}>
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus, doloremque id sint ad obcaecati animi cum quaerat, totam nulla adipisci vel non amet iste. Ad ullam necessitatibus beatae quibusdam quas!
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus.
                             </p>
-                            <Divider /><button className='btn btn-primary'>Add to Cart</button>
+                            <p>Select Color</p>
+                            <select name="colors" id="colors" className={Styles.dropDown}>
+                                <option value="red">Red</option>
+                                <option value="blue">Blue</option>
+                                <option value="green">Green</option>
+                                <option value="Orange">Oragne</option>
+                            </select>
+                            <button className='btn btn-primary'>Add to Cart</button>
                             <button className='btn btn-secondary'>Add to Wishlist</button>
+                            <Tabs
+                                active={activePan}
+                                changePan={handleChangeActivePan}
+                                items={[
+                                    'Tab 1',
+                                    'Tab 2',
+                                    'Tab 3',
+                                ]}
+                            />
+                            <div className={Styles.tabPan}>{renderViews()}</div>
                         </div>
                     </div>
                 </div>
