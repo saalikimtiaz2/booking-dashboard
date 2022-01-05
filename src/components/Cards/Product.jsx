@@ -1,8 +1,10 @@
 import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
+import Rate from "rc-rate";
 import { CartContext } from "../../context/cartContext";
 import Tabs from "../Tabs";
 import useColor from "../../hooks/useColor";
+import "rc-rate/assets/index.css";
 import Styles from "./style.module.scss";
 
 const dogImages = [
@@ -63,7 +65,10 @@ function Product({ product }) {
       </div>
       <div className={Styles.details}>
         <h2>{product?.title}</h2>
-        <p className={Styles.review}>({product?.rating?.count} Reviews)</p>
+        <div className={Styles.rating}>
+          <Rate value={product?.rating?.rate} count={5} allowHalf disabled />
+          <p className={Styles.review}>({product?.rating?.count} Reviews)</p>
+        </div>
         <h3 className={Styles.price}>
           ${product?.price} <span>$23</span>
         </h3>

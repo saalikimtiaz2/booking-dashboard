@@ -150,16 +150,8 @@
   outline: none;
   text-transform: capitalize;
 }
-
-.pagination {
+.rating {
   display: flex;
   align-items: center;
-  justify-content: center;
-  button {
-    padding: 1.5rem;
-    background: rgb(226, 226, 226);
-    border-radius: 50px;
-    margin: 5px;
-    border: none;
-  }
+  gap: 0.5rem;
 }
