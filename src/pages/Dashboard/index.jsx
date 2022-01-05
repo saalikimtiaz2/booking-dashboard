@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import useProducts from "../../hooks/useProducts";
 import Styles from "./style.module.scss";
-import TotalPriceFetch from "../../components/Cards/TotalPriceFetch";
-import TotalPricePurchased from "../../components/Cards/TotalPricePurchased";
-import WeeklyStats from "../../components/Cards/WeeklyStats";
-import Products from "../../components/Cards/Products";
+import TotalPriceFetch from "../../components/TotalPriceFetch";
+import TotalPricePurchased from "../../components/TotalPricePurchase";
+import WeeklyStats from "../../components/WeeklyStats";
+import Products from "../../components/Products";
 
 function Dashboard() {
   const { loading, products, fetchProducts } = useProducts();

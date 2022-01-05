@@ -1,0 +1,18 @@
+@import "../../styles/colors";
+
+.titleWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 0.2em;
+  }
+}
+
+.subtitle {
+  font-size: 14px;
+  color: $subtitleColor;
+  margin-bottom: 1em;
+}
