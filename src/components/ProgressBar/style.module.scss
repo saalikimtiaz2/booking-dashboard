@@ -5,6 +5,7 @@
   p {
     color: $subtitleColor;
     margin-right: 5px;
+    text-transform: capitalize;
   }
   @media only screen and (max-width: 560px) {
     display: block !important;

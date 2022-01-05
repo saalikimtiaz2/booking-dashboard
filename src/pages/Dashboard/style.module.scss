@@ -4,7 +4,6 @@
   font-weight: 500;
   margin-bottom: 1em;
 }
-
 .titleWrapper {
   display: flex;
   justify-content: space-between;
@@ -14,11 +13,6 @@
     font-weight: 700;
     margin-bottom: 0.2em;
   }
-}
-.subtitle {
-  font-size: 14px;
-  color: $subtitleColor;
-  margin-bottom: 1em;
 }
 
 .detailsWapper {
@@ -39,20 +33,6 @@
   font-weight: 700;
   margin-bottom: 0.2em;
   text-transform: uppercase;
-}
-
-.socialProgress {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  p {
-    font-size: 16px;
-    color: $subtitleColor;
-  }
-}
-
-.socialWrapper {
-  margin-top: 1.5em;
 }
 
 .mission {
@@ -78,27 +58,7 @@
     opacity: 0.3;
   }
 }
-.roundProgressWrapper {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 1em;
 
-  div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    p {
-      text-align: center;
-      font-size: 14;
-      color: $subtitleColor;
-      text-transform: capitalize;
-    }
-  }
-  @media only screen and (max-width: 768px) {
-    flex-direction: column;
-  }
-}
 .pieWrapper {
   display: flex;
   justify-content: space-between;
@@ -145,87 +105,4 @@
       border-radius: 10px;
     }
   }
-}
-
-.grid {
-  display: grid;
-  columns: 3;
-  gap: 2em;
-  grid-auto-rows: minmax(200px, auto);
-  padding: 2em;
-  border-radius: 5px;
-  background-color: white;
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  position: relative;
-  @media only screen and (max-width: 768px) {
-    padding: 2em 1.5em;
-  }
-}
-.images {
-  grid-column: 1 / 2;
-  grid-row: 1;
-  @media only screen and (max-width: 768px) {
-    grid-column: 1;
-  }
-}
-.details {
-  grid-column: 2 / 2;
-  grid-row: 1;
-  h2 {
-    font-size: 20px;
-    font-weight: 700;
-  }
-
-  @media only screen and (max-width: 768px) {
-    grid-column: 1;
-    grid-row: 2;
-  }
-}
-.activeImage {
-  width: 300px;
-  height: 300px;
-}
-.thumbnailWrapper {
-  margin-top: 1.5em;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.thumbnail {
-  width: 54px;
-  height: 54px;
-  margin: 5px;
-}
-.review {
-  margin-top: 5px;
-  font-size: 12px;
-  color: rgb(89, 60, 255);
-}
-.price {
-  font-size: 24px;
-  font-weight: 300;
-  margin: 1em 0;
-  span {
-    font-size: 18px;
-    text-decoration: line-through;
-    color: $subtitleColor;
-  }
-}
-.productDetail {
-  font-size: 14px;
-  margin: 0.5em 0;
-  margin-bottom: 1em;
-  color: $subtitleColor;
-}
-.tabPan {
-  padding: 1em 0;
-}
-.dropDown {
-  display: block;
-  margin-bottom: 2em;
-  width: 100%;
-  padding: 0.7em 1.5em;
-  border-radius: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  outline: none;
 }

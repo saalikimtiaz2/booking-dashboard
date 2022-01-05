@@ -3,15 +3,16 @@ import axios from "axios";
 
 const useProducts = () => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const fetchProducts = async (number) => {
     try {
+      console.log("Fetching Products", number);
       setLoading(true);
       const res = await axios.get(
-        `https://fakestoreapi.com/products?limit=${number}`
+        `https://fakestoreapi.com/products?limit=${number * 3}`
       );
-      const { allProducts } = await res.data;
+      const allProducts = await res.data;
       setProducts(allProducts);
       setLoading(false);
     } catch (err) {
@@ -20,7 +21,8 @@ const useProducts = () => {
   };
 
   useEffect(() => {
-    fetchProducts();
+    console.log("I am called at render");
+    fetchProducts(1);
   }, []);
 
   return {
