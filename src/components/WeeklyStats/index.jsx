@@ -6,11 +6,13 @@ import Divider from "../Divider";
 import Styles from "./style.module.scss";
 
 function WeeklyStats({ products }) {
+  // States
   const [postiveRated, setPostiveRated] = useState([]);
   const [negativeRated, setNegativeRated] = useState([]);
   const [categories, setCategories] = useState([]);
   const organizeProductByCategory = () => {
     // https://stackoverflow.com/questions/40774697/how-can-i-group-an-array-of-objects-by-key?answertab=votes#tab-top
+
     const result = products.reduce((prev, curr) => {
       // eslint-disable-next-line no-param-reassign
       prev[curr.category] = prev[curr.category] || [];
@@ -21,6 +23,7 @@ function WeeklyStats({ products }) {
   };
 
   useEffect(() => {
+    // seperating positve and negative resonded products
     products.forEach((product) => {
       if (product.rating.rate > 3) {
         setPostiveRated((prev) => [...prev, product]);
@@ -91,6 +94,7 @@ function WeeklyStats({ products }) {
   );
 }
 
+// proptypes for weeklyStats
 WeeklyStats.propTypes = {
   products: PropTypes.instanceOf(Object).isRequired,
 };

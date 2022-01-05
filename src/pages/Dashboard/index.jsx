@@ -7,7 +7,10 @@ import WeeklyStats from "../../components/WeeklyStats";
 import Products from "../../components/Products";
 
 function Dashboard() {
+  // Hooks
   const { loading, products, fetchProducts } = useProducts();
+
+  // States
   const [totalPriceFetched, setTotalPriceFetch] = useState();
   const [product, setProduct] = useState(null);
   const [page, setPage] = useState(1);
@@ -68,7 +71,6 @@ function Dashboard() {
                   </ul>
                 </div>
                 <p className={Styles.subtitle}>Reservations overview</p>
-
                 <div className={Styles.detailsWapper}>
                   <h3>Total Visitors of 23.08.2018</h3>
                   <p>345</p>

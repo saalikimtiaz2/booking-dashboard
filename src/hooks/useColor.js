@@ -5,6 +5,7 @@ const useColors = () => {
   const [colors, setColors] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  // this function fetches the color
   const fetchColors = async () => {
     try {
       setLoading(true);

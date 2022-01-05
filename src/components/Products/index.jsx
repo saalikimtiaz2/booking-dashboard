@@ -18,10 +18,12 @@ function Products({ product }) {
   );
 }
 
+// default prop values for product
 Products.defaultProps = {
   product: "",
 };
 
+// proptypes for product
 Products.propTypes = {
   product: PropTypes.instanceOf(Object),
 };

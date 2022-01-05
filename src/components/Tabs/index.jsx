@@ -18,6 +18,7 @@ function Tabs({ items, active, changePan }) {
   );
 }
 
+// proptypes for tabs
 Tabs.propTypes = {
   items: PropTypes.instanceOf(Array).isRequired,
   active: PropTypes.number.isRequired,

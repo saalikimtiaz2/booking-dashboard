@@ -15,12 +15,18 @@ const dogImages = [
 ];
 
 function Product({ product }) {
+  // Context
   const { addToCard } = useContext(CartContext);
+
+  // Hooks
+  const { colors } = useColor();
+
+  // States
   const [activeImage, setActiveImage] = useState(dogImages[0]);
   const [activePan, setActivePan] = useState(0);
   const [discount, setDiscount] = useState(0);
-  const { colors } = useColor();
 
+  // this functions sets discount
   const getDiscount = (price, dis) => {
     const val1 = (dis / 100) * price;
     setDiscount(price - val1);
@@ -47,10 +53,12 @@ function Product({ product }) {
   const renderViews = () => {
     switch (activePan) {
       case 0:
-        return <div>{product?.description}</div>;
+        return (
+          <div className={Styles.productDetail}>{product?.description}</div>
+        );
       case 1:
         return (
-          <div>
+          <div className={Styles.productDetail}>
             adipisicing elit. Neque officia similique modi architecto animi
             voluptatem dolores accusantium aliquam, fugiat placeat fugit vel
             dolore asperiores officiis quasi sit odit consequatur facilis?
@@ -58,7 +66,7 @@ function Product({ product }) {
         );
       case 2:
         return (
-          <div>
+          <div className={Styles.productDetail}>
             Voluptatem accusantium aliquam, fugiat placeat fugit vel dolore
             asperiores officiis quasi sit odit consequatur facilis?{activeImage}
           </div>
@@ -118,10 +126,12 @@ function Product({ product }) {
   );
 }
 
+// default props values for product
 Product.defaultProps = {
   product: "",
 };
 
+// propstypes for product
 Product.propTypes = {
   product: PropTypes.instanceOf(Object),
 };

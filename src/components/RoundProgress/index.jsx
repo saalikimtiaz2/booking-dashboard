@@ -18,12 +18,13 @@ function Circle({ color, percentage }) {
     />
   );
 }
-
+// default prop values for circle
 Circle.defaultProps = {
   percentage: 100,
   color: "#e67e22",
 };
 
+// proptypes for circle
 Circle.propTypes = {
   color: PropTypes.string,
   percentage: PropTypes.number,
@@ -43,11 +44,13 @@ function Text({ percentage, color }) {
     </text>
   );
 }
+// default prop values for text
 Text.defaultProps = {
   percentage: 100,
   color: "#e67e22",
 };
 
+// proptypes for text
 Text.propTypes = {
   color: PropTypes.string,
   percentage: PropTypes.number,
@@ -64,11 +67,13 @@ function RoundProgress({ percentage, color }) {
     </svg>
   );
 }
+// default prop values for round progess
 RoundProgress.defaultProps = {
   percentage: 100,
   color: "#e67e22",
 };
 
+// proptypes for round progess
 RoundProgress.propTypes = {
   color: PropTypes.string,
   percentage: PropTypes.number,

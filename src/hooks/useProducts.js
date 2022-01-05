@@ -5,6 +5,7 @@ const useProducts = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // this function fetches the prodcuts
   const fetchProducts = async (number) => {
     try {
       setLoading(true);

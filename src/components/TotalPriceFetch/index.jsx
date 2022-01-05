@@ -4,6 +4,7 @@ import ProgressBar from "../ProgressBar";
 import Styles from "./style.module.scss";
 
 function TotalPriceFetch({ totalPriceFetched }) {
+  // assumed the total price of all products is 10000
   const totalProductsPrice = 10000;
 
   return (
@@ -28,10 +29,12 @@ function TotalPriceFetch({ totalPriceFetched }) {
   );
 }
 
+// default prop values for totalPriceFetch
 TotalPriceFetch.defaultProps = {
   totalPriceFetched: 10000,
 };
 
+// proptypes for totalPriceFetch
 TotalPriceFetch.propTypes = {
   totalPriceFetched: PropTypes.number,
 };

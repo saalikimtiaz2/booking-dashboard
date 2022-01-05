@@ -5,6 +5,7 @@ import { CartContext } from "../../context/cartContext";
 import Styles from "./style.module.scss";
 
 function TotalPricePurchased({ totalPriceFetched }) {
+  // context
   const { totalPrice, products } = useContext(CartContext);
   return (
     <>
@@ -26,10 +27,13 @@ function TotalPricePurchased({ totalPriceFetched }) {
     </>
   );
 }
+
+// default prop values for totalPircePurchase
 TotalPricePurchased.defaultProps = {
   totalPriceFetched: 10000,
 };
 
+// proptypes for totalPircePurchase
 TotalPricePurchased.propTypes = {
   totalPriceFetched: PropTypes.number,
 };

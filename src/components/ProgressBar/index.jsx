@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 import Styles from "./style.module.scss";
 
 function ProgressBar({ title, value, barColor }) {
+  // this function covert color hex code to rgba/rgba
   const hexToRGB = (hex, alpha) => {
     const r = parseInt(hex.slice(1, 3), 16);
     const g = parseInt(hex.slice(3, 5), 16);
     const b = parseInt(hex.slice(5, 7), 16);
-
     if (alpha) {
       return `rgba(${r}, ${g}, ${b}, ${alpha})`;
     } else {
@@ -42,14 +42,18 @@ function ProgressBar({ title, value, barColor }) {
   );
 }
 
+// default prop values for progress bar
 ProgressBar.defaultProps = {
   title: "",
+  barColor: "#e67e22",
+  value: 100,
 };
 
+// proptypes for progress bar
 ProgressBar.propTypes = {
   title: PropTypes.string,
-  value: PropTypes.string.isRequired,
-  barColor: PropTypes.string.isRequired,
+  value: PropTypes.string,
+  barColor: PropTypes.string,
 };
 
 export default ProgressBar;

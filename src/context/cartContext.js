@@ -2,12 +2,14 @@
 import React, { createContext, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
+// context states
 export const CartContext = createContext({
   totalPrice: "",
   products: [],
   addToCard: () => {},
 });
 
+// context provider
 function CartContextProvider({ children }) {
   const [price, setPrice] = useState(0);
   const [products, setProducts] = useState([]);
