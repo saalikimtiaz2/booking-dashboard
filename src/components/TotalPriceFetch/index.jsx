@@ -15,7 +15,7 @@ function TotalPriceFetch({ totalPriceFetched }) {
             minimumFractionDigits: 2,
           })}
         </h2>
-        <img src="/assets/up.svg" alt="" className="icon" />
+        <img src="/assets/down.svg" alt="" className="icon" />
       </div>
       <p className={`${Styles.subtitle} uppercase`}>Total Price Fetch</p>
       <ProgressBar

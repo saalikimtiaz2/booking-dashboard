@@ -7,7 +7,6 @@ const useProducts = () => {
 
   const fetchProducts = async (number) => {
     try {
-      console.log("Fetching Products", number);
       setLoading(true);
       const res = await axios.get(
         `https://fakestoreapi.com/products?limit=${number * 3}`
@@ -21,7 +20,6 @@ const useProducts = () => {
   };
 
   useEffect(() => {
-    console.log("I am called at render");
     fetchProducts(1);
   }, []);
 

@@ -79,6 +79,7 @@ function WeeklyStats({ products }) {
         {Object.keys(categories).map((key) => (
           <ProgressBar
             title={key}
+            key={key}
             value={Number(
               (categories[key].length * 100) / products.length
             ).toFixed(0)}

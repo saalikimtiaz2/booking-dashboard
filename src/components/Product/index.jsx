@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import PropTypes from "prop-types";
 import Rate from "rc-rate";
 import { CartContext } from "../../context/cartContext";
@@ -16,9 +16,30 @@ const dogImages = [
 
 function Product({ product }) {
   const { addToCard } = useContext(CartContext);
-  const [setActiveImage] = useState(dogImages[0]);
+  const [activeImage, setActiveImage] = useState(dogImages[0]);
   const [activePan, setActivePan] = useState(0);
+  const [discount, setDiscount] = useState(0);
   const { colors } = useColor();
+
+  const getDiscount = (price, dis) => {
+    const val1 = (dis / 100) * price;
+    setDiscount(price - val1);
+  };
+
+  useEffect(() => {
+    const temp = product?.price;
+    if (temp < 30) {
+      getDiscount(temp, 30);
+    } else if (temp > 30 && temp < 70) {
+      getDiscount(temp, 20);
+    } else if (temp > 70 && temp < 100) {
+      getDiscount(temp, 10);
+    } else if (temp > 100 && temp < 200) {
+      getDiscount(temp, 5);
+    } else {
+      setDiscount(0);
+    }
+  }, [product]);
 
   const handleChangeActivePan = (value) => () => {
     setActivePan(value);
@@ -39,7 +60,7 @@ function Product({ product }) {
         return (
           <div>
             Voluptatem accusantium aliquam, fugiat placeat fugit vel dolore
-            asperiores officiis quasi sit odit consequatur facilis?
+            asperiores officiis quasi sit odit consequatur facilis?{activeImage}
           </div>
         );
       default:
@@ -70,13 +91,14 @@ function Product({ product }) {
           <p className={Styles.review}>({product?.rating?.count} Reviews)</p>
         </div>
         <h3 className={Styles.price}>
-          ${product?.price} <span>$23</span>
+          ${discount === 0 ? product?.price : Number(discount).toFixed(2)}
+          {discount >= 0 ? <span>${product?.price}</span> : ""}
         </h3>
         <p className={Styles.productDetail}>{product?.description}</p>
         <p>Select Color</p>
         <select name="colors" id="colors" className={Styles.dropDown}>
           {colors.map((color) => (
-            <option value={color} className={Styles.color}>
+            <option value={color} className={Styles.color} key={color}>
               {color}
             </option>
           ))}
@@ -96,8 +118,12 @@ function Product({ product }) {
   );
 }
 
+Product.defaultProps = {
+  product: "",
+};
+
 Product.propTypes = {
-  product: PropTypes.instanceOf(Object).isRequired,
+  product: PropTypes.instanceOf(Object),
 };
 
 export default Product;

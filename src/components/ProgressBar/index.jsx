@@ -42,9 +42,13 @@ function ProgressBar({ title, value, barColor }) {
   );
 }
 
+ProgressBar.defaultProps = {
+  title: "",
+};
+
 ProgressBar.propTypes = {
-  title: PropTypes.string.isRequired,
-  value: PropTypes.number.isRequired,
+  title: PropTypes.string,
+  value: PropTypes.string.isRequired,
   barColor: PropTypes.string.isRequired,
 };
 
