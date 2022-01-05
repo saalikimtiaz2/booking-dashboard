@@ -26,9 +26,12 @@ function TotalPricePurchased({ totalPriceFetched }) {
     </>
   );
 }
+TotalPricePurchased.defaultProps = {
+  totalPriceFetched: 10000,
+};
 
 TotalPricePurchased.propTypes = {
-  totalPriceFetched: PropTypes.number.isRequired,
+  totalPriceFetched: PropTypes.number,
 };
 
 export default TotalPricePurchased;

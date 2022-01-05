@@ -18,8 +18,12 @@ function Products({ product }) {
   );
 }
 
+Products.defaultProps = {
+  product: "",
+};
+
 Products.propTypes = {
-  product: PropTypes.instanceOf(Object).isRequired,
+  product: PropTypes.instanceOf(Object),
 };
 
 export default Products;

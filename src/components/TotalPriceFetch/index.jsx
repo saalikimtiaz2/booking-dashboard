@@ -28,8 +28,12 @@ function TotalPriceFetch({ totalPriceFetched }) {
   );
 }
 
+TotalPriceFetch.defaultProps = {
+  totalPriceFetched: 10000,
+};
+
 TotalPriceFetch.propTypes = {
-  totalPriceFetched: PropTypes.number.isRequired,
+  totalPriceFetched: PropTypes.number,
 };
 
 export default TotalPriceFetch;
