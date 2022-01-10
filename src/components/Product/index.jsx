@@ -33,15 +33,15 @@ function Product({ product }) {
   };
 
   useEffect(() => {
-    const temp = product?.price;
-    if (temp < 30) {
-      getDiscount(temp, 30);
-    } else if (temp > 30 && temp < 70) {
-      getDiscount(temp, 20);
-    } else if (temp > 70 && temp < 100) {
-      getDiscount(temp, 10);
-    } else if (temp > 100 && temp < 200) {
-      getDiscount(temp, 5);
+    const price = product?.price;
+    if (price < 30) {
+      getDiscount(price, 30);
+    } else if (price > 30 && price < 70) {
+      getDiscount(price, 20);
+    } else if (price > 70 && price < 100) {
+      getDiscount(price, 10);
+    } else if (price > 100 && price < 200) {
+      getDiscount(price, 5);
     } else {
       setDiscount(0);
     }

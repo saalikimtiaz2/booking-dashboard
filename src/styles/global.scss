@@ -175,3 +175,10 @@ p {
   width: 100%;
   height: auto;
 }
+
+.loading-screen {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

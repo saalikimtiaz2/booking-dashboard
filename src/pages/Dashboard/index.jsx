@@ -7,24 +7,22 @@ import WeeklyStats from "../../components/WeeklyStats";
 import Products from "../../components/Products";
 
 function Dashboard() {
-  // Hooks
-  const { loading, products, fetchProducts } = useProducts();
-
   // States
   const [totalPriceFetched, setTotalPriceFetch] = useState();
   const [product, setProduct] = useState(null);
   const [page, setPage] = useState(1);
 
+  // Hooks
+  const { loading, products } = useProducts(page);
+
   const handleNext = () => {
     if (page <= 7) {
       setPage((prev) => prev + 1);
-      fetchProducts(page + 1);
     }
   };
   const handlePrevious = () => {
     if (page >= 1) {
       setPage((prev) => prev - 1);
-      fetchProducts(page - 1);
     }
   };
 
@@ -41,7 +39,7 @@ function Dashboard() {
   }, [loading, products]);
 
   if (loading) {
-    return <span>Loading...</span>;
+    return <div className="loading-screen">Loading...</div>;
   } else {
     return (
       <>
@@ -121,12 +119,16 @@ function Dashboard() {
           </div>
         </section>
         <Products product={product} />
-        <div className={Styles.pagination}>
-          <button onClick={handlePrevious}>&larr;</button>
-          <button onClick={handleChangeProduct(3)}>1</button>
-          <button onClick={handleChangeProduct(2)}>2</button>
-          <button onClick={handleChangeProduct(1)}>3</button>
-          <button onClick={handleNext}>&rarr;</button>
+        <div className="container" style={{ backgroundColor: "white" }}>
+          <div className={Styles.pagination}>
+            <button onClick={() => setPage(1)}>{"<<"}</button>
+            <button onClick={handlePrevious}>{"<"}</button>
+            <button onClick={handleChangeProduct(3)}>1</button>
+            <button onClick={handleChangeProduct(2)}>2</button>
+            <button onClick={handleChangeProduct(1)}>3</button>
+            <button onClick={handleNext}>{">"}</button>
+            <button onClick={() => setPage(7)}>{">>"}</button>
+          </div>
         </div>
       </>
     );
